@@ -6,6 +6,9 @@ use warnings;
 
 use parent qw(Devgru::Monitor);
 
+use Carp;
+use LWP::UserAgent;
+
 =head1 NAME
 
 Devgru::Monitor::TSCMS - TSCMS monitor
