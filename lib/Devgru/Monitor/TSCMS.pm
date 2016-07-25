@@ -40,7 +40,7 @@ sub _check_node {
     my $node_name = shift || croak("No node name provided to _check_node");
 
     my $ua = LWP::UserAgent->new();
-    $ua->timeout($self->get_check_timeout);
+    $ua->timeout($self->check_timeout);
     $ua->agent(__PACKAGE__ . '/' . $VERSION);
 
 
@@ -80,7 +80,7 @@ sub version_report {
 
     my $last_check = $self->last_version_check;
     my @report = ();
-    if (!$last_check || (time - $last_check > $self->get_version_frequency)) {
+    if (!$last_check || (time - $last_check > $self->version_frequency)) {
         my %data = ();
         my $good_report = 1;
         foreach my $node ($self->get_node_names) {
