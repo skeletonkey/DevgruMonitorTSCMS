@@ -77,6 +77,7 @@ sub _check_node {
 
 sub version_report {
     my $self = shift;
+    return () unless $self->version_frequency;
 
     my $last_check = $self->last_version_check;
     my @report = ();
